@@ -1,0 +1,18 @@
+---
+title: "Shiny"
+format: html
+---
+
+```{r}
+library(shiny)
+```
+
+```{r}
+ui <- fluidPage(
+  "Hello, Frank!"
+)
+server <- function(input, output, session) {
+}
+shinyApp(ui, server)
+```
+
