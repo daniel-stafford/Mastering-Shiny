@@ -1,7 +1,7 @@
 library(shiny)
 
 ui <- fluidPage(
-  selectInput("data_choice", label = "Meow", choices = ls("package:datasets")),
+  selectInput("data_choice", label = "Choose a data set", choices = ls("package:datasets")),
   verbatimTextOutput("summary"),
   tableOutput("table")
 )
@@ -14,11 +14,11 @@ server <- function(input, output, session) {
 
   output$summary <- renderPrint({
     # Use a reactive expression by calling it like a function
-    summary(data_choice)
+    summary(data_choice())
   })
 
   output$table <- renderTable({
-    data_choice
+    data_choice()
   })
 }
 
